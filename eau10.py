@@ -1,15 +1,12 @@
 import sys
 
-if len(sys.argv) == 3 and sys.argv[1].isdigit():
-    
-    first_value = int(sys.argv[1])
-    second_value = int(sys.argv[2])
-    if first_value < second_value:
-        for i in range(first_value, second_value):
-            print(i, end = " ")
-    else:
-        for i in range(second_value, first_value):
-            print(i, end = " ")
+if not len(sys.argv) < 3 :
+    table = sys.argv[1:-1]
+    search_element = sys.argv[-1]
+    for i in range(len(table)):
+        if table[i] == search_element:
+            print(i)
+            break
+    else: print(-1)
         
-else : print("error.")
-    
+

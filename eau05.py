@@ -1,18 +1,11 @@
 import sys
 
-# vérifie si l'argument est bon
+if len(sys.argv) == 3 and sys.argv[1].isalpha() and sys.argv[2].isalpha() :
+    str_global = sys.argv[1]
+    str_to_find = sys.argv[2]
 
-# boucle qui ajoute 1 à l'argument tant qu'il n'est pas premier
+    if str_to_find in str_global:
+        print("true")
+    else:print("false")
 
-def int_find_next_first_number(number):
-    while True:
-        if not (number % 2 == 0 or number % 3 == 0 or number % 5 == 0 or number % 7 == 0):
-            result = number
-            break
-        number += 1
-                
-    return result
-
-if sys.argv[1].isdigit() and len(sys.argv) == 2:
-    print(int_find_next_first_number(int(sys.argv[1])))
-else: print(-1)
+else: print("error.")

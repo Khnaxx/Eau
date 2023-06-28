@@ -1,9 +1,14 @@
 import sys
 
-if len(sys.argv) == 1:
-    print("erreur.")
-else:
-    arr_input = sys.argv[1:]
+def fibo(element):
+    arr_fibo = [0,1,1,2]
+    for i in range(element-len(arr_fibo)+1):
+        arr_fibo.append(sum(arr_fibo[-2:]))
+    result = arr_fibo[-1]
+    return result
 
-    for arg in reversed(arr_input):
-        print(arg)
+if sys.argv[1].isdigit() and len(sys.argv) == 2:
+    index = int(sys.argv[1])
+    print(fibo(index))
+else: print(-1)
+

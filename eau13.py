@@ -7,15 +7,19 @@ def bool_control(arg):
             exit()
     else: return True
     
-def arr_tri(liste):
-    for i in range(len(liste)-1,1,-1):
-        for j in range(0,i):
-            if liste[j+1] < liste[j]:
-                liste[j+1], liste[j] = liste[j], liste[j+1]
-    return liste
+def arr_tri_selection(arr):
+    n = len(arr)
+    for i in range(0,n-1):
+        minimum = i
+        for j in range(i+1, n):
+            if arr[j] < arr[i]:
+                minimum = j
+        if minimum != i:
+            arr[i], arr[minimum] = arr[minimum], arr[i]
+    return arr
 
 table = sys.argv[1:]
 
 if bool_control(table):
     table = [int(element) for element in table]
-    print(arr_tri(table))
+    print(arr_tri_selection(table))
